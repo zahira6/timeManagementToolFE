@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="login.component.scss" rel="stylesheet">
+  </head>
+  <body>
+  <form action="login.component.ts" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div>
+        <input type="text" formControlName="email" [ngClass]="{'is-valid': submitted && forms['email']}">
+      </div>
+      <div *ngIf="submitted && forms['email']">
+        <small *ngIf="forms['email']"></small>
+      </div>
+      <div>
+      <input type="text" formControlName="password" [ngClass]="{'is-valid': submitted && forms['password']}">
+      </div>
+      <div *ngIf="submitted && forms['password']">
+        <small *ngIf="forms['password']"></small>
+      </div>
+      <div>
+        <button type="submit">Login</button>
+        <button type="button" (click)="onReset()">Reset</button>
+      </div>
+    </div>
+  </form>
+  </body>
+</html>

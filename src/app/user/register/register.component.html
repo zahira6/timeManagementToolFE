@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="register.component.scss" rel="stylesheet">
+</head>
+<body>
+<form action="register.component.ts" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <div>
+      <input type="text" formControlName="email" [ngClass]="{'is-valid': submitted && forms['email']}">
+    </div>
+    <div *ngIf="submitted && forms['email']">
+      <small *ngIf="forms['email']"></small>
+    </div>
+    <div>
+      <input type="text" formControlName="password" [ngClass]="{'is-valid': submitted && forms['password']}">
+    </div>
+    <div *ngIf="submitted && forms['password']">
+      <small *ngIf="forms['password']"></small>
+    </div>
+    <div>
+      <input type="text" formControlName="validatePassword" [ngClass]="{'is-valid': submitted && forms['validatePassword']}">
+    </div>
+    <div *ngIf="submitted && forms['validatePassword']">
+      <small *ngIf="forms['validatePassword']"></small>
+    </div>
+    <div>
+      <button type="submit">Register</button>
+      <button type="button" (click)="onReset()">Reset</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>
+
