@@ -13,6 +13,7 @@ import { UserService } from './user/user.service';
 import { EntryComponent } from './profile/entry/entry.component';
 import { CommonModule } from '@angular/common';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TimeTrackerComponent } from './profile/time-tracker/time-tracker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     LogoutComponent,
     EntryComponent,
+    TimeTrackerComponent,
   ],
   imports: [
     BrowserModule,

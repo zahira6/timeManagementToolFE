@@ -25,12 +25,12 @@ export class EntryComponent implements OnInit{
   }
 
   newEntry(): void {
-    this.entryService.addDiary(this.Project, this.Description, this.Date, this.Duration, this.Id)
+    this.entryService.addEntry(this.Project, this.Description, this.Date, this.Duration, this.Id)
     this.allEntries()
   }
 
   deleteEntry(id: string): void {
-    this.entryService.deleteDiary(id)
+    this.entryService.deleteEntry(id)
     this.entryService.getEntries()
   }
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Entry } from '../model/entry';
 
-const AUTH_API = 'http/localhost:8080/entry';
+const AUTH_API = 'http://localhost:8080/profile/entry';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +28,7 @@ export class EntryService {
     })
   };
 
-  addDiary(project: string, description: string, date: Date, duration: number, id: string){
+  addEntry(project: string, description: string, date: Date, duration: number, id: string){
     let newDate = new Date(date).getTime()
     return this.http.post<Entry>(`${AUTH_API}`,
       {'project': project, 'description': description, 'date': newDate, 'duration': duration, 'id': id}
@@ -36,14 +36,14 @@ export class EntryService {
         project = i.project,
         description = i.description,
         date = new Date(i.date),
+        date.toDateString()
         duration = i.duration,
         id = i.id,
-          date.toDateString()
       this.entries.unshift({project, description, date, duration, id})
     })
   }
 
-  deleteDiary(id: string){
+  deleteEntry(id: string){
     const options = {
       body: {
         id: id

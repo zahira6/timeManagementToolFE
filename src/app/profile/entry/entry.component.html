@@ -1,19 +1,21 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <link href="entry.component.scss" rel="stylesheet">
+    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
     <div>
       <input type="text" [(ngModel)]="Project" placeholder="Project">
       <textarea type="text" [(ngModel)]="Description" placeholder="Description"></textarea>
+      <input type="date" [(ngModel)]="Date">
       <input type="number" [(ngModel)]="Duration" placeholder="Duration">
       <button (click)="newEntry()"></button>
     </div>
     <div *ngFor="let entry of entries">
       <span>{{entry.project}}</span>
       <span>{{entry.description}}</span>
-      <span>{{entry.date | date:'dd/MM/yyyy'}}</span>
+      <span><i class="glyphicon glyphicon-dashboard"></i>{{entry.date | date:'dd/MM/yyyy'}}</span>
       <span>{{entry.duration}}</span>
     </div>
   </body>
