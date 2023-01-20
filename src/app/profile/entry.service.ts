@@ -28,7 +28,7 @@ export class EntryService {
     })
   };
 
-  addEntry(project: string, description: string, date: Date, duration: number, id: string){
+  addEntry(project: string, description: string, date: Date, duration: string, id: string){
     let newDate = new Date(date).getTime()
     return this.http.post<Entry>(`${AUTH_API}`,
       {'project': project, 'description': description, 'date': newDate, 'duration': duration, 'id': id}
@@ -57,7 +57,7 @@ export class EntryService {
     })
   };
 
-  updateEntryById(project: string, description: string, date: Date, duration: number, id: string){
+  updateEntryById(project: string, description: string, date: Date, duration: string, id: string){
     let newDate = new Date(date).getTime()
     return this.http.put<Entry>(`${AUTH_API}`, 
       {'project': project, 'description': description, 'date': newDate, 'duration': duration, 'id': id}

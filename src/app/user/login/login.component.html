@@ -7,16 +7,16 @@
   <form action="login.component.ts" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
       <div>
-        <input type="text" formControlName="email" [ngClass]="{'is-valid': submitted && forms['email']}">
+        <input type="text" formControlName="email" [ngClass]="{'is-valid': submitted && forms['email'].errors}">
       </div>
-      <div *ngIf="submitted && forms['email']">
-        <small *ngIf="forms['email']"></small>
+      <div *ngIf="submitted && forms['email'].errors">
+        <small *ngIf="forms['email'].errors['required']">Email is required</small>
       </div>
       <div>
-      <input type="text" formControlName="password" [ngClass]="{'is-valid': submitted && forms['password']}">
+      <input type="text" formControlName="password" [ngClass]="{'is-valid': submitted && forms['password'].errors}">
       </div>
-      <div *ngIf="submitted && forms['password']">
-        <small *ngIf="forms['password']"></small>
+      <div *ngIf="submitted && forms['password'].errors">
+        <small *ngIf="forms['password'].errors['required']">Password is required</small>
       </div>
       <div>
         <button type="submit">Login</button>

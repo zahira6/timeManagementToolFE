@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit{
       this.userService.loginUser(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         (i) => {console.log(i);
         alert("You are logged in");
-        this.router.navigate(['user/register']);
+        this.router.navigate(['profile/entry']);
         }, (error) => {console.log(error);
         alert("Wrong email or password");
         }

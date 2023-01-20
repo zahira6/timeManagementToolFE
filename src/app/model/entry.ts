@@ -2,6 +2,6 @@ export interface Entry {
   project: string,
   description: string,
   date: Date,
-  duration: number,
+  duration: string,
   id: string
 }

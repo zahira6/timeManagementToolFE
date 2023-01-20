@@ -1,7 +1,7 @@
-import { Time } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
-import { TimeTrackerService } from '../time-tracker.service';
-import { timer } from 'rxjs';
+import { Router } from '@angular/router';
+import { EntryService } from '../entry.service';
 
 @Component({
   selector: 'app-time-tracker',
@@ -9,6 +9,7 @@ import { timer } from 'rxjs';
   styleUrls: ['./time-tracker.component.scss']
 })
 export class TimeTrackerComponent {
+  isSaved: boolean = false;
   isRunning: boolean = false;
   time: any;
   timerDisplay: any;
@@ -17,8 +18,14 @@ export class TimeTrackerComponent {
   hours: any = '00';
   counter: number = 0;
   timeRef: any;
+  Project = '';
+  Description = '';
+  Date = new Date();
+  Id = '';
+  Duration = '';
+  entries = this.entryService.entries
 
-  constructor(private timeTrackerService: TimeTrackerService){}
+  constructor(private entryService: EntryService, private router: Router){}
 
   startTimer(){
     this.isRunning = !this.isRunning;
@@ -42,6 +49,17 @@ export class TimeTrackerComponent {
     } else {
       clearInterval(this.timeRef);
     }
+  }
+
+  saveTimer(){
+    this.isSaved = !this.isSaved;
+    this.Duration = (this.hours + ':' + this.minutes + ':' + this.seconds)
+  }
+
+  newEntryWithTimeTracker(): void {
+    this.entryService.addEntry(this.Project, this.Description, this.Date, this.Duration, this.Id)
+    alert("Entry successfully saved");
+    this.router.navigate(['profile/entry'])
   }
   
 }

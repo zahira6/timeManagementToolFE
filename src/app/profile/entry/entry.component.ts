@@ -7,13 +7,18 @@ import { EntryService } from '../entry.service';
   styleUrls: ['./entry.component.scss']
 })
 export class EntryComponent implements OnInit{
+  addNewEntry: boolean = false;
   Project = '';
   Description = '';
   Date = new Date();
-  Duration = 0;
+  Duration = '';
   Id = '';
   entries = this.entryService.entries
   constructor(private entryService: EntryService) {
+  }
+
+  showNewEntry(): void {
+    this.addNewEntry = !this.addNewEntry
   }
 
   ngOnInit(): void {
@@ -38,5 +43,4 @@ export class EntryComponent implements OnInit{
     this.entryService.updateEntryById(this.Project, this.Description, this.Date, this.Duration, this.Id)
     this.allEntries()
   }
-
 }
