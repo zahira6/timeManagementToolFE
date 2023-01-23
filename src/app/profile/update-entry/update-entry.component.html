@@ -2,33 +2,22 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link href="entry.component.scss" rel="stylesheet">
+    <link href="update-entry.component.scss" rel="stylesheet">
     <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
     <div>
-      <button (click)="showNewEntry()">{{addNewEntry? "Hide Entry" : "Add Entry"}}</button>
-      <div [hidden]="!addNewEntry">
         <input required type="text" [(ngModel)]="Project" name="project" placeholder="Project" #project ="ngModel">
         <textarea required type="text" [(ngModel)]="Description" name="description" placeholder="Description" #description="ngModel"></textarea>
         <input required type="date" [(ngModel)]="Date" name="date" #date="ngModel">
         <input required type="text" [(ngModel)]="Duration" name="duration" placeholder="00:00:00" minlength="8" maxlength="8" title="HH:mm:ss" #duration="ngModel">
-        <button (click)="newEntry()" [disabled]="duration.invalid || project.invalid || description.invalid || date.invalid">Send</button>
+        <button (click)="updateEntry()" [disabled]="duration.invalid || project.invalid || description.invalid || date.invalid">Update</button>
         <div *ngIf="duration.invalid || project.invalid || description.invalid || date.invalid">
           All fields have to be set!
         </div>
         <div [hidden]="duration.valid">
           Duration has to be in format HH:mm:ss
         </div> 
-      </div>
-    </div>
-    <div *ngFor="let entry of entries">
-      <span>{{entry.project}}</span>
-      <span>{{entry.description}}</span>
-      <span><i class="glyphicon glyphicon-dashboard"></i>{{entry.date | date:'dd/MM/yyyy'}}</span>
-      <span>{{entry.duration}}</span>
-      <button (click)="deleteEntry(entry.id)">delete</button>
-      <button (click)="navigateToUpdateEntry(entry.id)">update</button>
     </div>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EntryService } from '../entry.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class EntryComponent implements OnInit{
   Duration = '';
   Id = '';
   entries = this.entryService.entries
-  constructor(private entryService: EntryService) {
+  constructor(private entryService: EntryService, private router: Router) {
   }
 
   showNewEntry(): void {
@@ -39,8 +40,7 @@ export class EntryComponent implements OnInit{
     this.entryService.getEntries()
   }
 
-  updateEntry(): void {
-    this.entryService.updateEntryById(this.Project, this.Description, this.Date, this.Duration, this.Id)
-    this.allEntries()
+  navigateToUpdateEntry(id: string): void {
+    this.router.navigate(['profile/entry', id])
   }
 }

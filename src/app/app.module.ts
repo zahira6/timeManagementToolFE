@@ -14,6 +14,7 @@ import { EntryComponent } from './profile/entry/entry.component';
 import { CommonModule } from '@angular/common';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeTrackerComponent } from './profile/time-tracker/time-tracker.component';
+import { UpdateEntryComponent } from './profile/update-entry/update-entry.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { TimeTrackerComponent } from './profile/time-tracker/time-tracker.compon
     LogoutComponent,
     EntryComponent,
     TimeTrackerComponent,
+    UpdateEntryComponent,
   ],
   imports: [
     BrowserModule,

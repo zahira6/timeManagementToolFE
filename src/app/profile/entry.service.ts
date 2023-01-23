@@ -59,7 +59,7 @@ export class EntryService {
 
   updateEntryById(project: string, description: string, date: Date, duration: string, id: string){
     let newDate = new Date(date).getTime()
-    return this.http.put<Entry>(`${AUTH_API}`, 
+    return this.http.put<Entry>(`${AUTH_API}/${id}`, 
       {'project': project, 'description': description, 'date': newDate, 'duration': duration, 'id': id}
     ).subscribe(i => {
       project = i.project,
@@ -68,7 +68,14 @@ export class EntryService {
         duration = i.duration,
         id = i.id,
         date.toDateString()
-      this.entries.unshift({project, description, date, duration, id})
+      this.entries.forEach(entry => {
+        if (entry.id == id) {
+          entry.project = project,
+          entry.description = description,
+          entry.date = date,
+          entry.duration = duration
+        }
+      })
     })
   }
 }

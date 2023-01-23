@@ -10,6 +10,7 @@ const AUTH_API = 'http://localhost:8080/user';
   providedIn: 'root'
 })
 export class UserService {
+  loggedIn = false;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   public tokenKey = 'access_token';
 
@@ -40,5 +41,15 @@ export class UserService {
           sessionStorage.removeItem(this.tokenKey);
         }}
       })
+  }
+
+  isLoggedIn(): boolean {
+    const token = sessionStorage.getItem(this.tokenKey);
+    if(token) {
+      this.loggedIn = true;
+      return true;
+    } else {
+      return false;
+    }
   }
 }
