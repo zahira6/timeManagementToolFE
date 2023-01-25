@@ -5,22 +5,24 @@
   </head>
   <body>
   <form action="login.component.ts" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-      <div>
+    <div id="loginForm">
+      <div id="email">
+      Email <br/>
         <input type="text" formControlName="email" [ngClass]="{'is-valid': submitted && forms['email'].errors}">
       </div>
       <div *ngIf="submitted && forms['email'].errors">
         <small *ngIf="forms['email'].errors['required']">Email is required</small>
       </div>
-      <div>
+      <div id="password">
+      Password <br/>
       <input type="text" formControlName="password" [ngClass]="{'is-valid': submitted && forms['password'].errors}">
       </div>
       <div *ngIf="submitted && forms['password'].errors">
         <small *ngIf="forms['password'].errors['required']">Password is required</small>
       </div>
-      <div>
-        <button type="submit">Login</button>
-        <button type="button" (click)="onReset()">Reset</button>
+      <div id="buttons">
+        <button type="submit" id="submit">Login</button>
+        <button type="button" (click)="onReset()" id="reset">Reset</button>
       </div>
     </div>
   </form>

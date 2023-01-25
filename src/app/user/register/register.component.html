@@ -5,28 +5,31 @@
 </head>
 <body>
 <form action="register.component.ts" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-  <div>
-    <div>
+  <div id="registerForm">
+    <div id="email">
+    Email <br/>
       <input type="text" formControlName="email" [ngClass]="{'is-valid': submitted && forms['email'].errors}">
     </div>
     <div *ngIf="submitted && forms['email'].errors">
       <small *ngIf="forms['email'].errors['required']">Email is required</small>
     </div>
-    <div>
+    <div id="password">
+    Password <br/>
       <input type="text" formControlName="password" [ngClass]="{'is-valid': submitted && forms['password'].errors}">
     </div>
     <div *ngIf="submitted && forms['password'].errors">
       <small *ngIf="forms['password'].errors['required']">Password is required</small>
     </div>
-    <div>
+    <div id="confirmPassword">
+    Confirm Password <br/>
       <input type="text" formControlName="validatePassword" [ngClass]="{'is-valid': submitted && forms['validatePassword'].errors}">
     </div>
     <div *ngIf="submitted && forms['validatePassword'].errors">
       <small *ngIf="forms['validatePassword'].errors['required']">Confirm password is required</small>
     </div>
-    <div>
-      <button type="submit">Register</button>
-      <button type="button" (click)="onReset()">Reset</button>
+    <div id="buttons">
+      <button type="submit" id="submit">Register</button>
+      <button type="button" (click)="onReset()" id="reset">Reset</button>
     </div>
   </div>
 </form>

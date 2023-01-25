@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div>
-            <span>{{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}}</span>
-            <button (click)="startTimer()">{{isRunning? "Stop" : "Start"}}</button>
-            <button (click)="saveTimer()">Save</button>
-        </div>
-        <div *ngIf="this.isSaved">
-            <input required type="text" [(ngModel)]="Project" name="project" placeholder="Project" #project ="ngModel">
-            <textarea required type="text" [(ngModel)]="Description" name="description" placeholder="Description" #description="ngModel"></textarea>
-            {{Duration}}
-            <button (click)="newEntryWithTimeTracker()" [disabled]="project.invalid || description.invalid">Send</button>
-            <div *ngIf="project.invalid || description.invalid">
-                All fields have to be set!
+        <div id="timeTracker">
+            <div id="time">
+                <span>{{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}}</span>
             </div>
+            <div id="buttons">
+                <button (click)="startTimer()" id="startTime">{{isRunning? "Stop" : "Start"}}</button>
+                <button (click)="saveTimer()" id="saveTime">Save</button>
+            </div>
+        </div>
+        <div *ngIf="this.isSaved" id="newEntry">
+            <input required type="text" [(ngModel)]="Project" name="project" placeholder="Project" #project ="ngModel" id="addProject">
+            <input required type="text" [(ngModel)]="Description" name="description" placeholder="Description" #description="ngModel" id="addDescription">
+            <span id="addDuration">{{Duration}}</span> 
+            <button (click)="newEntryWithTimeTracker()" [disabled]="project.invalid || description.invalid" id="save">Save</button>
+            <small *ngIf="project.invalid || description.invalid">
+                All fields have to be set!
+            </small>
         </div>
     </body>
 </html>

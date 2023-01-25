@@ -22,7 +22,7 @@ export class EntryService {
         const duration = entry.duration;
         const id = entry.id
         if (this.entries.filter( t => t.id === id).length === 0) {
-          this.entries.push({project, description, date, duration, id})
+          this.entries.unshift({project, description, date, duration, id})
         }
       })
     })

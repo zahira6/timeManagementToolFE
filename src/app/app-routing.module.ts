@@ -9,6 +9,7 @@ import { LogoutComponent } from './user/logout/logout.component';
 import { RegisterComponent } from './user/register/register.component';
 
 const routes: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'user/login', component: LoginComponent},
   {path: 'user/register', component: RegisterComponent},
   {path: 'user/logout', component: LogoutComponent, canActivate: [GuardService]},
