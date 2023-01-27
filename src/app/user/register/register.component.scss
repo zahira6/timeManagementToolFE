@@ -29,5 +29,16 @@ small{
 }
 
 #submit, #reset{
+    border-radius: 5px 5px;
     width: 100px;
+}
+
+@media only screen and (max-width: 550px){
+    #registerForm{
+        margin-top: 25%;
+    }
+
+    #buttons{
+        margin-top: 5%;
+    }
 }

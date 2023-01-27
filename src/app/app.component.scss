@@ -1,0 +1,38 @@
+$font-size: 16px;
+
+#navBar{
+    height: calc(40px + 2vw);
+    background-color: #022E51;
+}
+
+a{
+    font-size: $font-size;
+    color: gainsboro;
+    padding: 0.5%;
+    text-decoration: none;
+}
+
+a:hover, a:focus{
+    color: #CC6D3D;
+    text-decoration: none;
+}
+
+#notLoggedIn{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;   
+}
+
+#login, #register{
+    align-self: center;
+}
+
+#loggedIn{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#logout, #entry, #timeTracker{
+    align-self: center;
+}

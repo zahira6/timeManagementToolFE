@@ -5,12 +5,18 @@
     <link href="app.component.scss" rel="stylesheet">
   </head>
   <body>
-    <a routerLink="user/register">Register</a>
-    <a routerLink="user/login">Login</a>
-    <a routerLink="user/logout">Logout</a>
-    <a routerLink="profile/entry">Entry</a>
-    <a routerLink="profile/timeTracker">Time Tracker</a>
-    <router-outlet></router-outlet>
+    <div id="navBar">
+      <div *ngIf="!userIsLoggedIn()" id="notLoggedIn">
+        <a routerLink="user/register" id="register">Register</a>
+        <a routerLink="user/login" id="login">Login</a>
+      </div>
+      <div *ngIf="userIsLoggedIn()" id="loggedIn">
+        <a routerLink="profile/entry" id="entry">Entry</a>
+        <a routerLink="profile/timeTracker" id="timeTracker">Time Tracker</a>
+        <a routerLink="user/logout" id="logout">Logout</a>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
   </body>
 </html>
 

@@ -1,40 +1,44 @@
 $font-size: 12px;
 
 #timeTracker{
-    margin-top: 10%;
+    margin-top: calc(150px - 3vw);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #time{
-    width: 15%;
-    font-size: 30px;
+    width: calc(100px + 8vw);
+    font-size: calc(30px + 1vw);
     margin: {
         bottom: 3%;
     };
 }
 
 #buttons{
-    width: 15%;
+    width: 200px;
 }
 
 #startTime, #saveTime{
+    border-radius: 5px 5px;
     width: 40%;
     display: inline-flex;
     justify-content: center;
 }
 
 #startTime{
-    margin-right: 15%;
+    margin: {
+        right: 10%;
+        left: calc(20px - 2vw);
+    }
 }
 
 #newEntry{
     font-size: $font-size;
     display: flex;
-    width: 90%;
+    width: calc(500px + 9vw);
     margin: {
-        left: 10%;
+        left: calc(-150px + 40vw);
         top: 10%;
         bottom: 5%;
     }
@@ -49,7 +53,7 @@ $font-size: 12px;
     padding: 1%;
     width: 20%;
     height: 20px;
-    border: solid thin black;
+    border: solid thin #022E51;
 }
 
 #save{
@@ -58,7 +62,6 @@ $font-size: 12px;
     margin-left: 10px;
     width: 10%;
     height: 35px;
-    border: solid thin black;
 }
 
 small{
@@ -66,5 +69,49 @@ small{
     margin: {
         top: 7%;
         left: -50%;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    #timeTracker{
+        margin-top: 30%;
+    }
+    
+    #time{
+        width: 20%;
+        margin: {
+            bottom: 10%;
+        };
+    }
+    
+    #buttons{
+        width: 30%;
+    }
+    
+    #startTime{
+        margin: {
+            right: 5%;
+            left: 15%;
+        }
+    }
+    
+    #newEntry{
+        margin: {
+            left: 10%;
+            top: 20%;
+        }
+        width: 90%;
+    }
+    
+    #save{
+        width: 15%;
+        height: 30px;
+    }
+    
+    small{
+        margin: {
+            top: 10%;
+            left: -60%;
+        }
     }
 }

@@ -3,11 +3,10 @@ $font-size: 14px;
 #entry{
     font-size: $font-size;
     display: flex;
-    width: 90%;
+    width: calc(300px + 30vw);
     margin: {
-        left: 10%;
-        top: 10%;
-        bottom: 5%;
+        left: calc(-150px + 30vw);
+        top: calc(20% - 8vw);
     }
 }
 
@@ -20,30 +19,61 @@ $font-size: 14px;
     padding: 1%;
     width: 20%;
     height: 40px;
-    border: solid thin black;
+    border: solid thin #022E51;
 }
 
 #update{
     justify-content: center;
     border-radius: 5px 5px;
     margin-left: 10px;
-    width: 10%;
+    width: calc(80px - 1vw);
     height: 40px;
-    border: solid thin black;
 }
 
 #invalidFields{
     color: darkred;
     margin: {
-        top: 8%;
-        left: -90%;
+        top: calc(80px - 1.5vw);
+        left: calc(-350px - 15vw);
     }
 }
 
 #invalidDuration{
     color: darkred;
     margin: {
-        top: 8%;
-        left: 35%;
+        top: calc(80px - 1.5vw);
+        left: calc(50px + 5vw);
+    }
+}
+
+@media only screen and (max-width: 550px){
+    #entry{
+        width: 90%;
+        margin: {
+            left: 5%;
+            top: 20%;
+            bottom: 5%;
+        }
+    }
+    
+    #update{
+        margin-left: 5px;
+        width: 13%;
+    }
+    
+    #invalidFields{
+        color: darkred;
+        margin: {
+            top: 15%;
+            left: -95%;
+        }
+    }
+    
+    #invalidDuration{
+        color: darkred;
+        margin: {
+            top: 15%;
+            left: 10%;
+        }
     }
 }
